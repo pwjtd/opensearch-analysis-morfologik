@@ -34,10 +34,10 @@ public class MorfologikPluginIT extends OpenSearchIntegTestCase {
     }
 
     public void testPluginInstalled() throws IOException, ParseException {
-        /*Response response = createRestClient().performRequest(new Request("GET", "/_cat/plugins"));
+        Response response = createRestClient().performRequest(new Request("GET", "/_cat/plugins"));
         String body = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
 
         logger.info("response body: {}", body);
-        MatcherAssert.assertThat(body, containsString("rename"));*/
+        MatcherAssert.assertThat(body, containsString("opensearch-analysis-morfologik"));
     }
 }

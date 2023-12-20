@@ -4,6 +4,6 @@ This document contains a list of maintainers in this repo. See [opensearch-proje
 
 ## Current Maintainers
 
-| Maintainer    | GitHub ID                                  | Affiliation                    |
-|---------------|--------------------------------------------|--------------------------------|
-| Dominik Tudek | [Ksawierek](https://github.com/Ksawierek)  | [OPI PIB](https://opi.org.pl)  |
+| Maintainer    | GitHub ID                                 | Affiliation                   |
+|---------------|-------------------------------------------|-------------------------------|
+| Dominik Tudek | [Ksawierek](https://github.com/Ksawierek) | [OPI PIB](https://opi.org.pl) |
