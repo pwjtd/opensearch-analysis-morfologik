@@ -45,6 +45,7 @@ opensearchplugin {
     noticeFile rootProject.file('NOTICE.txt')
 }
 
+
 // This requires an additional Jar not published as part of build-tools
 loggerUsageCheck.enabled = false
 
