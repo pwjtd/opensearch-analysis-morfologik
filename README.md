@@ -1,9 +1,10 @@
 # Morfologik Polish Lemmatizer plugin for OpenSearch
-Simple OpenSearch analysis plugin for Polish language. It's base on lucene-analysis-morfologik which is java library
-implementation of [Morfologik](http://morfologik.blogspot.com).
+Simple OpenSearch analysis plugin for Polish language. It uses [lucene-analysis-morfologik](https://lucene.apache.org) which is java library
+base on [Morfologik](http://morfologik.blogspot.com).
 
 Helpful links:
-https://github.com/allegro/elasticsearch-analysis-morfologik
+* https://github.com/allegro/elasticsearch-analysis-morfologik
+* https://github.com/monterail/elasticsearch-analysis-morfologik
 
 ## Dependecies
 
