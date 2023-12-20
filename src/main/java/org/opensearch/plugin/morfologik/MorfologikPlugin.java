@@ -17,11 +17,19 @@ import org.opensearch.plugins.Plugin;
 import java.util.Collections;
 import java.util.Map;
 
-
+/**
+ * Main plugin class. Register Morfologik analyzer and token filter.
+ */
 public class MorfologikPlugin extends Plugin implements AnalysisPlugin {
 
+    /**
+     * Analyzer name.
+     */
     public static final String ANALYZER_NAME = "morfologik";
 
+    /**
+     * Tokenizer name.
+     */
     public static final String FILTER_NAME = "morfologik_stem";
 
     @Override
