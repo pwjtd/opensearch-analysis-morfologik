@@ -3,25 +3,16 @@ import org.opensearch.gradle.test.RestIntegTestTask
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'opensearch.opensearchplugin'
-apply plugin: 'opensearch.yaml-rest-test'
+//apply plugin: 'opensearch.yaml-rest-test'
 apply plugin: 'opensearch.pluginzip'
 
-def pluginName = 'rename'
-def pluginDescription = 'Custom plugin'
+def pluginName = 'opensearch-analysis-morfologik'
+def pluginDescription = 'Morfologik Polish Lemmatizer plugin for OpenSearch'
 def projectPath = 'org.opensearch'
-def pathToPlugin = 'path.to.plugin'
-def pluginClassName = 'RenamePlugin'
-group = "RenameGroup"
-
-tasks.register("preparePluginPathDirs") {
-    mustRunAfter clean
-    doLast {
-        def newPath = pathToPlugin.replace(".", "/")
-        mkdir "src/main/java/org/opensearch/$newPath"
-        mkdir "src/test/java/org/opensearch/$newPath"
-        mkdir "src/yamlRestTest/java/org/opensearch/$newPath"
-    }
-}
+def pathToPlugin = 'plugin.morfologik'
+def pluginClassName = 'MorfologikPlugin'
+group = "org.opensearch"
+version = opensearch_version - "-SNAPSHOT"
 
 publishing {
     publications {
@@ -62,7 +53,9 @@ validateNebulaPom.enabled = false
 
 buildscript {
     ext {
-        opensearch_version = System.getProperty("opensearch.version", "3.0.0-SNAPSHOT")
+        opensearch_version = System.getProperty("opensearch.version", "2.11.1")
+        lucene_version = "9.7.0"
+        morfologik_version = "2.1.9"
     }
 
     repositories {
@@ -82,6 +75,13 @@ repositories {
     maven { url "https://aws.oss.sonatype.org/content/repositories/snapshots" }
     mavenCentral()
     maven { url "https://plugins.gradle.org/m2/" }
+}
+
+dependencies {
+    implementation "org.apache.lucene:lucene-analysis-morfologik:${lucene_version}"
+    implementation "org.carrot2:morfologik-stemming:${morfologik_version}"
+    implementation "org.carrot2:morfologik-polish:${morfologik_version}"
+    implementation "org.carrot2:morfologik-fsa:${morfologik_version}"
 }
 
 test {
@@ -123,4 +123,3 @@ task updateVersion {
         ant.replaceregexp(file:'build.gradle', match: '"opensearch.version", "\\d.*"', replace: '"opensearch.version", "' + newVersion.tokenize('-')[0] + '-SNAPSHOT"', flags:'g', byline:true)
     }
 }
-
